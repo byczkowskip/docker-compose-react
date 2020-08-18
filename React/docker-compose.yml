@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: .Dockerfile
+    container_name: react_app
+    volumes:
+      - ./frontend:/usr/src/react_app
+      - /usr/src/react_app/node_modules
+    ports:
+      - "3000:3000"
+    command: ["npm", "start"]
